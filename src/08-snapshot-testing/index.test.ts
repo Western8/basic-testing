@@ -16,7 +16,7 @@ describe('generateLinkedList', () => {
 
   // Check match by comparison with snapshot
   test('should generate linked list from values 2', () => {
-    const res = generateLinkedList([2 ,'string', true]);
+    const res = generateLinkedList([2, 'string', true]);
     expect(res).toMatchSnapshot();
   });
 });

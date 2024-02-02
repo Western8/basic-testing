@@ -8,7 +8,7 @@ jest.mock('lodash', () => {
   return {
     __esModule: true,
     ...originalModule,
-    throttle: jest.fn(fn => fn),
+    throttle: jest.fn((fn) => fn),
   };
 });
 
@@ -27,7 +27,7 @@ jest.mock('axios', () => {
 });
 */
 describe('throttledGetDataFromApi', () => {
-/*
+  /*
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -40,7 +40,7 @@ describe('throttledGetDataFromApi', () => {
       baseURL: 'https://jsonplaceholder.typicode.com',
     });
 
-/*
+    /*
    const baseURL =  'abcde';
 
     jest.mock('axios', () => {
@@ -72,7 +72,7 @@ describe('throttledGetDataFromApi', () => {
   });
 
   test('should perform request to correct provided url', async () => {
-/*
+    /*
     
     //const spy0 = jest.spyOn(axios, 'create');
     //const spy = jest.spyOn(axios.create(), 'get');
@@ -83,7 +83,7 @@ describe('throttledGetDataFromApi', () => {
     //expect(spy).toBeCalled();
     expect(spy).toHaveBeenCalled();
     //expect(spy).toBeCalledWith(relativePath);
-  */  
+  */
   });
 
   test('should return response data', async () => {

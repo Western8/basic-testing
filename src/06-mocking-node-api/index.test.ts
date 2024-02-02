@@ -15,7 +15,9 @@ describe('doStuffByTimeout', () => {
 
   test('should set timeout with provided callback and timeout', () => {
     const timeout = 5000;
-    const cb = () => {};
+    const cb = () => {
+      null;
+    };
     const spyTimeout = jest.spyOn(global, 'setTimeout');
     doStuffByTimeout(cb, timeout);
     jest.runAllTimers();
@@ -44,7 +46,9 @@ describe('doStuffByInterval', () => {
 
   test('should set interval with provided callback and timeout', () => {
     const timeout = 5000;
-    const cb = () => {};
+    const cb = () => {
+      null;
+    };
     const spyInterval = jest.spyOn(global, 'setInterval');
     doStuffByInterval(cb, timeout);
     jest.advanceTimersByTime(15000);
@@ -77,8 +81,14 @@ describe('readFileAsynchronously', () => {
   });
 
   test('should return file content if file exists', async () => {
-    const mockExistSync = jest.spyOn(fs, 'existsSync').mockImplementation(() => true);
-    const mockReadFile = jest.spyOn(fsPromises, 'readFile').mockImplementation(() => new Promise((resolve) => resolve(Buffer.from('file content'))));
+    const mockExistSync = jest
+      .spyOn(fs, 'existsSync')
+      .mockImplementation(() => true);
+    const mockReadFile = jest
+      .spyOn(fsPromises, 'readFile')
+      .mockImplementation(
+        () => new Promise((resolve) => resolve(Buffer.from('file content'))),
+      );
     const res = await readFileAsynchronously('abcde');
     expect(res).toBe('file content');
     mockExistSync.mockRestore();

@@ -2,7 +2,6 @@
 import { simpleCalculator, Action } from './index';
 
 describe('simpleCalculator tests', () => {
-
   test('should add two numbers', () => {
     const res = simpleCalculator({
       a: 1,
